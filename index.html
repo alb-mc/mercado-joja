@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <title>Mercado Joja</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <!-- Fonte pixelada -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+
+    <!-- Estilo CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="menu-esquerdo">
+        <div class="bloco-esquerdo-1" data-categoria="primavera">
+            <img src="img/Spring.png" alt="primavera-logo">
+            <span class="tooltip-menu">Primavera</span>
+        </div>
+
+        <div class="bloco-esquerdo-1" data-categoria="verao">
+            <img src="img/Summer.png" alt="verão-logo">
+            <span class="tooltip-menu">Verão</span>
+        </div>
+
+        <div class="bloco-esquerdo-1" data-categoria="outono">
+            <img src="img/Fall.png" alt="outono-logo">
+            <span class="tooltip-menu">Outono</span>
+        </div>
+
+        <div class="bloco-esquerdo-1" data-categoria="fixos">
+            <img src="img/joja_marca.png" alt="produtos-joja-logo">
+            <span class="tooltip-menu">Produtos Fixos</span>
+        </div>
+    </div>
+
+    <div class="pagina">
+        <div class="layout-mercado">
+            <main class="painel-principal">
+                <header class="cabecalho">
+                    <div class="logo-joja">
+                        <img src="img/joja_marca.png" alt="logo_da_joja">
+                    </div>
+
+                    <div class="titulo-area">
+                        <h1>Mercado Joja</h1>
+                        <p>✦ Qualidade. Conveniência. Joja. ✦</p>
+                    </div>
+
+                    <div class="carrinho-box" id="botao-armazem">
+                        <img src="img/armazem_joja.png" alt="armazem_joja">
+                    </div>
+                </header>
+
+                <div class="tabela-wrapper">
+                    <table class="tabela-joja">
+                        <thead>
+                            <tr>
+                                <th>ITEM</th>
+                                <th>PRODUTO</th>
+                                <th>OUROS</th>
+                                <th>QUANTIDADE</th>
+                                <th>TOTAL</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="lista-produtos">
+                        </tbody>
+                    </table>
+                </div>
+
+                <section class="rodape-compra">
+                    <button class="btn-pagina" onclick="voltarPagina()">
+                        <i class="bi bi-arrow-left-circle"></i>
+                        Página Anterior
+                    </button>
+
+                    <div class="subtotal-box">
+                        <i class="bi bi-cart-check"></i>
+                        Subtotal:
+                        <strong><span id="subtotal">0</span></strong>
+                        ouros
+                    </div>
+
+                    <button class="btn-pagina" onclick="proximaPagina()">
+                        Próxima página
+                        <i class="bi bi-arrow-right-circle"></i>
+                    </button>
+                </section>
+
+                <footer class="footer-joja">
+                    <span id="indicador-pagina">Página 1</span>
+                </footer>
+            </main>
+
+            <aside class="barra-lateral">
+                <section class="poster">
+                    <img src="img/propaganda2.png" alt="propaganda_joja_cola">
+                </section>
+
+                <img class="gif-lateral" src="img/SHANEGIF.gif" alt="shane">
+            </aside>
+        </div>
+    </div>
+
+    <footer class="rodape-creditos">
+        <span>Projeto feito por Alber Mendes</span>
+        <i class="bi bi-github"></i>
+    </footer>
+
+
+    <!-- MODAL DO FORMULÁRIO JOJA -->
+    <div class="modal-armazem" id="modal-armazem">
+        <div class="modal-conteudo-armazem formulario-bg">
+            <button class="botao-fechar-modal" id="botao-fechar-modal">
+                <i class="bi bi-x-lg"></i>
+            </button>
+
+            <button class="botao-projeto botao-onibus" data-projeto="onibus" data-video="videos/onibus.mp4"></button>
+            <button class="botao-projeto botao-carrinhos" data-projeto="carrinhos" data-video="videos/carrinhos.mp4"></button>
+            <button class="botao-projeto botao-ponte" data-projeto="ponte" data-video="videos/ponte.mp4"></button>
+            <button class="botao-projeto botao-estufa" data-projeto="estufa" data-video="videos/estufa.mp4"></button>
+            <button class="botao-projeto botao-mineracao" data-projeto="mineracao" data-video="videos/mineracao.mp4"></button>
+        </div>
+    </div>
+
+    <!-- MODAL DO VÍDEO -->
+    <div class="modal-video" id="modal-video">
+        <div class="modal-conteudo-video">
+            <button class="botao-fechar-modal" id="botao-fechar-video">
+                <i class="bi bi-x-lg"></i>
+            </button>
+
+            <video id="video-projeto" controls>
+                <source src="" type="video/mp4">
+                Seu navegador não suporta vídeo.
+            </video>
+        </div>
+    </div>
+
+    <!-- MODAL DE AVISO INICIAL -->
+    <div class="modal-aviso" id="modal-aviso">
+        <div class="aviso-conteudo">
+            <button class="botao-fechar-aviso" id="botao-fechar-aviso">
+                <i class="bi bi-x-lg"></i>
+            </button>
+
+            <h2>Aviso</h2>
+
+            <p>
+                Este é um projeto feito por fã, sem fins comerciais.
+            </p>
+
+            <p>
+                O objetivo é exclusivamente educativo, desenvolvido como exercício de entrega
+                para o curso de Engenharia de Software.
+            </p>
+
+            <p>
+                Projeto de Alber Mendes.
+            </p>
+
+            <button class="botao-entendi-aviso" id="botao-entendi-aviso">
+                Entendi
+            </button>
+        </div>
+    </div>
+
+    <!-- MODAL INICIAL DO MORRIS -->
+    <div class="modal-intro" id="modal-intro">
+        <div class="intro-conteudo">
+            <button class="botao-fechar-intro" id="botao-fechar-intro">
+                <i class="bi bi-x-lg"></i>
+            </button>
+
+            <img class="intro-morris" src="img/morris.png" alt="Morris">
+
+            <div class="caixa-dialogo">
+                <div class="nome-personagem">Morris</div>
+
+                <p id="texto-dialogo"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="function.js?v=6"></script>
+</body>
+</html>
