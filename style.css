@@ -236,7 +236,7 @@ body {
 
     background-image: url("img/background_1.png");
     background-size: cover;
-    background-position: center top;
+    background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
 
@@ -248,8 +248,7 @@ body {
 
 /* CONTAINER GERAL DA PÁGINA */
 .pagina {
-    width: calc(100vw - 155px - 60px);
-    max-width: 1190px;
+    width: min(1190px, calc(100vw - 230px));
     margin: 10px 0 0 170px;
     padding: 0 10px 30px 10px;
 }
@@ -641,30 +640,6 @@ body {
     border-top: 5px solid #6da7ff;
 }
 
-/* RESPONSIVO */
-@media (max-width: 1000px) {
-    body {
-        overflow-x: auto;
-    }
-
-    .pagina {
-        min-width: 1000px;
-        margin: 10px auto 0 auto;
-        padding: 0 10px 30px 10px;
-    }
-
-    .layout-mercado {
-        grid-template-columns: minmax(0, 1fr) 190px;
-    }
-
-    .titulo-area h1 {
-        font-size: 28px;
-    }
-
-    .titulo-area p {
-        font-size: 20px;
-    }
-}
 
 .btn-pagina {
     background: #0d64d8;
@@ -839,28 +814,28 @@ body {
 
 /* POSIÇÕES DOS QUADRADINHOS */
 .botao-onibus {
-    left: 14px;
-    top: 137px;
+    left: 2%;
+    top: 39.1%;
 }
 
 .botao-carrinhos {
-    left: 332px;
-    top: 137px;
+    left: 47.4%;
+    top: 39.1%;
 }
 
 .botao-ponte {
-    left: 14px;
-    top: 207px;
+    left: 2%;
+    top: 59.1%;
 }
 
 .botao-estufa {
-    left: 332px;
-    top: 207px;
+    left: 47.4%;
+    top: 59.1%;
 }
 
 .botao-mineracao {
-    left: 14px;
-    top: 278px;
+    left: 2%;
+    top: 79.4%;
 }
 
 /* MODAL DO VÍDEO */
@@ -1072,4 +1047,253 @@ body {
 
 .rodape-creditos i {
     font-size: 16px;
+}
+
+/* RESPONSIVO GERAL */
+@media (max-width: 900px) {
+    body {
+        background-attachment: scroll;
+        background-position: center top;
+        overflow-x: hidden;
+    }
+
+    .menu-esquerdo {
+        position: static;
+
+        width: 100%;
+        margin: 10px 0;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+
+        z-index: 50;
+    }
+
+    .bloco-esquerdo-1 {
+        width: 42px;
+        height: 38px;
+    }
+
+    .bloco-esquerdo-1 img {
+        width: 42px;
+        height: 38px;
+    }
+
+    .tooltip-menu {
+        left: 50%;
+        top: 48px;
+
+        transform: translateX(-50%) translateY(-8px);
+
+        font-size: 18px;
+        z-index: 9999;
+    }
+
+    .tooltip-menu::before {
+        left: 50%;
+        top: -11px;
+
+        transform: translateX(-50%);
+
+        border-left: 7px solid transparent;
+        border-right: 7px solid transparent;
+        border-bottom: 8px solid #143ca3;
+        border-top: none;
+    }
+
+    .bloco-esquerdo-1:hover .tooltip-menu {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    .pagina {
+        width: 100%;
+        max-width: none;
+
+        margin: 0;
+        padding: 0 10px 24px 10px;
+    }
+
+    .layout-mercado {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .painel-principal {
+        width: 100%;
+        border-width: 4px;
+        border-radius: 14px;
+
+        box-shadow:
+            0 0 0 3px #6da7ff,
+            5px 5px 0 #10255c;
+    }
+
+    .cabecalho {
+        grid-template-columns: 70px 1fr 80px;
+        gap: 8px;
+        padding: 10px;
+    }
+
+    .titulo-area h1 {
+        font-size: 18px;
+        white-space: normal;
+        line-height: 1.25;
+    }
+
+    .titulo-area p {
+        font-size: 16px;
+        white-space: normal;
+        line-height: 1.1;
+    }
+
+    .logo-joja img {
+        max-width: 70px;
+    }
+
+    .carrinho-box img {
+        max-width: 100%;
+        transform: none;
+    }
+
+    .carrinho-box img:hover {
+        transform: scale(1.06);
+    }
+
+    .tabela-wrapper {
+        
+        overflow-x: auto;
+    }
+
+    .tabela-joja {
+        min-width: 760px;
+    }
+
+    .rodape-compra {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .btn-pagina {
+        width: 100%;
+        justify-content: center;
+        font-size: 22px;
+    }
+
+    .subtotal-box {
+        width: 100%;
+        text-align: center;
+        font-size: 24px;
+    }
+
+    .barra-lateral {
+        width: 100%;
+
+        margin-top: 0;
+        transform: none;
+
+        display: flex;
+        align-items: center;
+    }
+
+    .poster {
+        width: 220px;
+        max-width: 90%;
+    }
+
+    .gif-lateral {
+        width: 140px;
+    }
+
+    .rodape-creditos {
+        position: static;
+
+        margin: 12px 0 8px 0;
+        padding-bottom: 8px;
+
+        color: rgba(255, 255, 255, 0.85);
+    }
+}
+
+@media (max-width: 520px) {
+    .cabecalho {
+        grid-template-columns: 60px 1fr 65px;
+        padding: 8px;
+    }
+
+    .titulo-area h1 {
+        font-size: 14px;
+    }
+
+    .titulo-area p {
+        font-size: 14px;
+    }
+
+    .logo-joja img {
+        max-width: 58px;
+    }
+
+    .produto-imagem {
+        width: 110px;
+        height: 80px;
+    }
+
+    .tabela-joja {
+        min-width: 720px;
+    }
+
+    .modal-conteudo-armazem,
+    .formulario-bg {
+        width: 94vw;
+        height: calc(94vw * 0.5);
+    }
+
+    .modal-conteudo-video {
+        width: 94vw;
+    }
+
+    .modal-conteudo-video video {
+        width: 100%;
+        height: auto;
+    }
+
+    .intro-conteudo {
+        width: 96vw;
+        height: 88vh;
+    }
+
+    .intro-morris {
+        width: 260px;
+        max-width: 70vw;
+        bottom: 240px;
+    }
+
+    .caixa-dialogo {
+        width: 94%;
+        min-height: 220px;
+
+        font-size: 28px;
+        padding: 48px 24px 26px 24px;
+    }
+
+    .nome-personagem {
+        font-size: 28px;
+    }
+
+    .aviso-conteudo {
+        width: 92vw;
+        padding: 38px 24px 28px 24px;
+    }
+
+    .aviso-conteudo h2 {
+        font-size: 18px;
+    }
+
+    .aviso-conteudo p {
+        font-size: 24px;
+    }
 }
